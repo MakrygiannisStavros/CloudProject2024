@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./web:/web
+    networks:
+      - vlab
+
+  frontend:
+    build: ./client
+    ports:
+      - "8080:80"
+    volumes:
+      - ./client:/client
+      # - ./node_modules:/client/node_modules
+    networks:
+      - vlab
+
+volumes:
+  client:
+  node_modules:
+  web:
+
+networks:
+  vlab:
