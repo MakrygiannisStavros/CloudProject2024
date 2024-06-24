@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./web:/web
+      - ./vlab_network:/shared
     networks:
       - vlab
 
@@ -15,15 +15,12 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./client:/client
-      # - ./node_modules:/client/node_modules
+      - ./vlab_volume:/shared
     networks:
       - vlab
 
 volumes:
-  client:
-  node_modules:
-  web:
+  vlab_volume:
 
 networks:
   vlab:
